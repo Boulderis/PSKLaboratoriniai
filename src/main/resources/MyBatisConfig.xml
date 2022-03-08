@@ -11,12 +11,12 @@
         <environment id="development">
             <transactionManager type="MANAGED"/>
             <dataSource type="JNDI">
-                <property name="data_source" value="CarsDataSource"/>
+                <property name="data_source" value="DriversDataSource"/>
             </dataSource>
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mybatis/DriverMapper.xml"/>
-        <mapper resource="mybatis/CarMapper.xml"/>
+        <mapper resource="mapper.xml/DriverMapper.xml"/>
+        <mapper resource="mapper.xml/CarMapper.xml"/>
     </mappers>
 </configuration>
