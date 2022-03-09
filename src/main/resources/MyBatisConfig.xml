@@ -6,6 +6,7 @@
     <typeAliases>
         <typeAlias type="ev.laborai.pirmaslab.mybatis.model.Driver" alias="Driver"/>
         <typeAlias type="ev.laborai.pirmaslab.mybatis.model.Car" alias="Car"/>
+        <typeAlias type="ev.laborai.pirmaslab.mybatis.model.Rider" alias="Rider"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">
@@ -18,5 +19,6 @@
     <mappers>
         <mapper resource="mapper.xml/DriverMapper.xml"/>
         <mapper resource="mapper.xml/CarMapper.xml"/>
+        <mapper resource="mapper.xml/RiderMapper.xml"/>
     </mappers>
 </configuration>

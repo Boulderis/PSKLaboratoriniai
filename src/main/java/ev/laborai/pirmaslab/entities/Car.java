@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @NamedQueries({
@@ -29,8 +30,11 @@ public class Car {
     @Column(nullable = false)
     private String plateNumber;
     @ManyToOne
-    @JoinColumn(name="DRIVER_ID", foreignKey = @ForeignKey(name = "FK_DRIVER_ID"))
+    @JoinColumn(name="DRIVER_ID")
     private Driver driver;
+    @ManyToMany
+    @JoinTable(name="rider")
+    private List<Rider> riders;
 
 
     @Override

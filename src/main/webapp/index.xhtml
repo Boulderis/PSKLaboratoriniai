@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>XHTML - Hello World</title>
-</head>
-<body>
-<h1>Hello world!</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
-</body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+    <title>Drivers page</title>
+</h:head>
+<h4>Drivers</h4>
+<ol>
+    <ui:repeat value="#{drivers.allDrivers}" var="driver">
+        <h:outputText value="#{driver.name} #{driver.surname}" />
+        <br/>
+    </ui:repeat>
+</ol>
+<h:form>
+    <h:inputText value="#{drivers.driverToCreate.name}" required="true" />
+    <br/>
+    <h:inputText value="#{drivers.driverToCreate.surname}" required="true" />
+    <br/>
+    <h:commandButton value="Create driver" actionListener="#{drivers.createDriver}" action="index?faces-redirect=true"/>
+</h:form>
+<h:body>
+</h:body>
 </html>

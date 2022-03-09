@@ -19,5 +19,8 @@
             <generatedKey column="id" identity="true" sqlStatement="JDBC" />
             <ignoreColumn column="opt_lock_version" />
         </table>
+        <table schema="public" tableName="rider">
+            <generatedKey column="id" identity="true" sqlStatement="JDBC" />
+        </table>
     </context>
 </generatorConfiguration>
