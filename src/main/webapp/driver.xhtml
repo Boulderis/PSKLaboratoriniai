@@ -7,12 +7,26 @@
       xmlns:f="http://java.sun.com/jsf/core">
 <h:head/>
 <h:body>
-    <h2>Driver name #{DriveCars.driver.name}:</h2>
+    <h2>Driver name #{driverCars.driver.name}</h2>
+    <h2>Driver surname #{driverCars.driver.surname}</h2>
     <ol>
-        <ui:repeat value="#{DriveCars.driver.cars}" var="car">
-            TEST
+        <ui:repeat value="#{driverCars.driver.cars}" var="car">
+            <h:link outcome="#{'car?carId='.concat(car.id)}" value="#{car.plateNumber}" />
+            <br/>
         </ui:repeat>
     </ol>
+    <h:form>
+        <h:inputText value="#{driverCars.carToCreate.make}" required="true" />
+        <br/>
+        <h:inputText value="#{driverCars.carToCreate.model}" required="true" />
+        <br/>
+        <h:inputText value="#{driverCars.carToCreate.plateNumber}" required="true" />
+        <br/>
+        <h:commandButton value="Create car" actionListener="#{driverCars.createCar}"
+                         action="#{'driver?faces-redirect=true&amp;driverId='.concat(driverCars.driver.id)}">
+            <f:param name="driverId" value="#{driverCars.driver.id}" />
+        </h:commandButton>
+    </h:form>
     <h:link outcome="index" value="Back to main page"/>
 </h:body>
 </html>

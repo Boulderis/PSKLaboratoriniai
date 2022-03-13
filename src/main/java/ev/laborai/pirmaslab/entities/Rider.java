@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,7 +16,7 @@ import java.util.Objects;
 @Table(name = "rider")
 @Getter
 @Setter
-public class Rider {
+public class Rider implements Serializable {
 
     public Rider() {
 

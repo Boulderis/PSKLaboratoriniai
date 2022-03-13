@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,7 +14,7 @@ import java.util.Objects;
 @Getter @Setter
 @Table(name = "car")
 @Entity
-public class Car {
+public class Car implements Serializable {
 
     public Car() {
 
@@ -33,7 +34,7 @@ public class Car {
     @JoinColumn(name="DRIVER_ID")
     private Driver driver;
     @ManyToMany
-    @JoinTable(name="rider")
+    @JoinTable(name="cars")
     private List<Rider> riders;
 
 

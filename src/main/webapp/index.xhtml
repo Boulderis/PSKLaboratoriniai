@@ -7,17 +7,35 @@
 </h:head>
 <h4>Drivers</h4>
 <ol>
-    <ui:repeat value="#{drivers.allDrivers}" var="driver">
-        <h:outputText value="#{driver.name} #{driver.surname}" />
+    <ui:repeat value="#{driversAndRiders.allDrivers}" var="driver">
+        <li>
+            <h:link outcome="#{'driver?driverId='.concat(driver.id)}" value="#{driver.name} #{driver.surname}" />
+        </li>
+        <br/>
+    </ui:repeat>
+</ol>
+<h4>Riders</h4>
+<ol>
+    <ui:repeat value="#{driversAndRiders.allRiders}" var="rider">
+        <li>
+            <h:link outcome="#{'rider?riderId='.concat(rider.id)}" value="#{rider.name} #{rider.surname}" />
+        </li>
         <br/>
     </ui:repeat>
 </ol>
 <h:form>
-    <h:inputText value="#{drivers.driverToCreate.name}" required="true" />
+    <h:inputText value="#{driversAndRiders.driverToCreate.name}" required="true" />
     <br/>
-    <h:inputText value="#{drivers.driverToCreate.surname}" required="true" />
+    <h:inputText value="#{driversAndRiders.driverToCreate.surname}" required="true" />
     <br/>
-    <h:commandButton value="Create driver" actionListener="#{drivers.createDriver}" action="index?faces-redirect=true"/>
+    <h:commandButton value="Create driver" actionListener="#{driversAndRiders.createDriver}" action="index?faces-redirect=true"/>
+</h:form>
+<h:form>
+    <h:inputText value="#{driversAndRiders.riderToCreate.name}" required="true" />
+    <br/>
+    <h:inputText value="#{driversAndRiders.riderToCreate.surname}" required="true" />
+    <br/>
+    <h:commandButton value="Create rider" actionListener="#{driversAndRiders.createRider}" action="index?faces-redirect=true"/>
 </h:form>
 <h:body>
 </h:body>

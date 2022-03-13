@@ -1,9 +1,9 @@
 package ev.laborai.pirmaslab.usecases;
 
 import ev.laborai.pirmaslab.entities.Car;
-import ev.laborai.pirmaslab.entities.Driver;
+import ev.laborai.pirmaslab.entities.Rider;
 import ev.laborai.pirmaslab.persistence.CarsDAO;
-import ev.laborai.pirmaslab.persistence.DriversDAO;
+import ev.laborai.pirmaslab.persistence.RidersDAO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,37 +12,46 @@ import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 
 @Model
-public class DriverCars implements Serializable {
+public class Riders {
 
     @Inject
-    private DriversDAO driversDAO;
+    private RidersDAO ridersDAO;
     @Inject
     private CarsDAO carsDAO;
 
     @Getter
-    @Setter
-    private Driver driver;
+    private List<Car> allCars;
 
     @Getter
     @Setter
-    private Car carToCreate = new Car();
+    private Rider rider;
+
+    @Getter
+    @Setter
+    private Long carToRideId;
 
     @PostConstruct
     public void init(){
         Map<String, String> requestParameters =
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-        Long driverId = Long.parseLong(requestParameters.get("driverId"));
-        driver = driversDAO.findOne(driverId);
+        Long riderId = Long.parseLong(requestParameters.get("riderId"));
+        rider = ridersDAO.findOne(riderId);
+        loadAllCars();
     }
 
     @Transactional
-    public void createCar() {
-        carToCreate.setDriver(driver);
-        carsDAO.persist(carToCreate);
+    public void createRide() {
+        Car car = carsDAO.findOne(carToRideId);
+        rider.getCars().add(car);
+        ridersDAO.update(rider);
+    }
+
+    private void loadAllCars(){
+        allCars = carsDAO.loadAll();
     }
 
 }
