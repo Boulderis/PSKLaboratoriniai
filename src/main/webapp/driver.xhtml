@@ -11,7 +11,8 @@
     <h2>Driver surname #{driverCars.driver.surname}</h2>
     <ol>
         <ui:repeat value="#{driverCars.driver.cars}" var="car">
-            <h:link outcome="#{'car?carId='.concat(car.id)}" value="#{car.plateNumber}" />
+            JPA <h:link outcome="#{'car?carId='.concat(car.id)}" value="#{car.plateNumber}" />
+            MyBatis <h:link outcome="#{'carMyBatis.xhtml?carId='.concat(car.id)}" value="#{car.plateNumber}" />
             <br/>
         </ui:repeat>
     </ol>

@@ -17,8 +17,8 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mapper.xml/DriverMapper.xml"/>
-        <mapper resource="mapper.xml/CarMapper.xml"/>
-        <mapper resource="mapper.xml/RiderMapper.xml"/>
+        <mapper resource="mapper/xml/DriverMapper.xml"/>
+        <mapper resource="mapper/xml/CarMapper.xml"/>
+        <mapper resource="mapper/xml/RiderMapper.xml"/>
     </mappers>
 </configuration>

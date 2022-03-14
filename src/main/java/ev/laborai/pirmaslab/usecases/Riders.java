@@ -46,8 +46,8 @@ public class Riders {
     @Transactional
     public void createRide() {
         Car car = carsDAO.findOne(carToRideId);
-        rider.getCars().add(car);
-        ridersDAO.update(rider);
+        car.getRiders().add(rider);
+        carsDAO.update(car);
     }
 
     private void loadAllCars(){

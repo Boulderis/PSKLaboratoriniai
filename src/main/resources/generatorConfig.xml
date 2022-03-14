@@ -14,6 +14,7 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="ev.laborai.pirmaslab.mybatis.dao" targetProject="MAVEN" />
         <table schema="public" tableName="driver">
             <generatedKey column="id" identity="true" sqlStatement="JDBC" />
+            <ignoreColumn column="opt_lock_version" />
         </table>
         <table schema="public" tableName="car">
             <generatedKey column="id" identity="true" sqlStatement="JDBC" />
@@ -21,6 +22,7 @@
         </table>
         <table schema="public" tableName="rider">
             <generatedKey column="id" identity="true" sqlStatement="JDBC" />
+            <ignoreColumn column="opt_lock_version" />
         </table>
     </context>
 </generatorConfiguration>

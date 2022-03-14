@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head/>
+<h:body>
+    <h2>Car make #{carsMyBatis.car.make}</h2>
+    <h2>Car model #{carsMyBatis.car.model}</h2>
+    <h2>Car plate number #{carsMyBatis.car}</h2>
+    <h3>Riders that have used this car</h3>
+    <ol>
+        <ui:repeat value="#{carsMyBatis.carRiders}" var="rider">
+            <h:outputLabel value="#{rider.name} #{rider.surname}" />
+            <br/>
+        </ui:repeat>
+    </ol>
+    <h:link outcome="index" value="Back to main page"/>
+
+</h:body>
+</html>

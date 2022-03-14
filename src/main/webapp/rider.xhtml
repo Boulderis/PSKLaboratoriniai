@@ -30,6 +30,12 @@
             <f:param name="riderId" value="#{riders.rider.id}" />
         </h:commandButton>
     </h:form>
+    <h:form>
+        <h:outputText value="#{bestRideFinder.taskRunning ? 'Searching...' : 'Route found.'}" />
+        <h:commandButton value="Search for best route" disabled="#{bestRideFinder.taskRunning}" action="#{bestRideFinder.findBestRide}">
+            <f:param name="riderId" value="#{riders.rider.id}" />
+        </h:commandButton>
+    </h:form>
     <h:link outcome="index" value="Back to main page"/>
 </h:body>
 </html>

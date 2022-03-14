@@ -30,4 +30,8 @@ public class CarsDAO {
         return em.merge(car);
     }
 
+    public Long Size() {
+        return (Long) em.createNamedQuery("Car.count").getSingleResult();
+    }
+
 }

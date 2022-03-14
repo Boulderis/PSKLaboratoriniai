@@ -21,6 +21,10 @@ public class DriversDAO {
         this.em.persist(driver);
     }
 
+    public Driver update(Driver driver){
+        return em.merge(driver);
+    }
+
     public Driver findOne(Long id) {
         return em.find(Driver.class, id);
     }

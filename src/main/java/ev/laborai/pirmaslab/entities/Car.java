@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.Objects;
 
 @NamedQueries({
-        @NamedQuery(name = "Car.findAll", query = "select car from Car as car")
+        @NamedQuery(name = "Car.findAll", query = "select car from Car as car"),
+        @NamedQuery(name = "Car.count", query = "select count(car) from Car as car")
 })
 @Getter @Setter
 @Table(name = "car")
@@ -36,6 +37,10 @@ public class Car implements Serializable {
     @ManyToMany
     @JoinTable(name="cars")
     private List<Rider> riders;
+
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
 
 
     @Override
