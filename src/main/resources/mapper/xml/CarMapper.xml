@@ -17,7 +17,7 @@
     <result column="MODEL" jdbcType="VARCHAR" property="model" />
     <result column="PLATENUMBER" jdbcType="VARCHAR" property="platenumber" />
     <result column="DRIVER_ID" jdbcType="BIGINT" property="driverId" />
-    <collection javaType="ArrayList" property="riders" resultMap="RiderResultMap" />
+    <collection javaType="ArrayList" property="riders" column="id" ofType="Riders" select="getRiders" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     <!--
@@ -62,11 +62,12 @@
     from PUBLIC.CAR
     where ID = #{id,jdbcType=BIGINT}
   </select>
-  <select id="getRiders" parameterType="java.lang.Long" resultType="BaseResultMap">
+  <select id="getRiders" parameterType="java.lang.Long" resultType="Rider">
     <!-->This method was created to deal with many to many relationship between a car and riders.-->
-    select ID, NAME, SURNAME, CAR_ID
-    from PUBLIC.RIDER
-    where CAR_ID = #{id, jdbcType=BIGINT}
+    select rider.ID, rider.NAME, rider.SURNAME
+    from PUBLIC.RIDER rider
+    join public.CARS cars_riders on rider.ID = cars_riders.RIDERS_ID
+    where ID = #{id, jdbcType=BIGINT}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     <!--

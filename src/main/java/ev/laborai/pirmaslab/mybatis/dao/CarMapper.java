@@ -9,8 +9,6 @@ import java.util.List;
 
 @Mapper
 public interface CarMapper {
-
-    List<Rider> riders = new ArrayList<Rider>();
     /**
      * My implemented method to get all riders related with the car (many to many relationship).
      */

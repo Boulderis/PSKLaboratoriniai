@@ -9,6 +9,13 @@
 <h:body>
     <h2>Driver name #{driverCars.driver.name}</h2>
     <h2>Driver surname #{driverCars.driver.surname}</h2>
+    <h2>Driver rating #{driverCars.driver.rating}</h2>
+    <h:form>
+        <h:outputText value="#{driverRatingCalculator.taskStatus}" />
+        <h:commandButton value="Update your rating?" disabled="#{driverRatingCalculator.taskRunning}" action="#{driverRatingCalculator.findRating()}">
+            <f:param name="driverId" value="#{driverCars.driver.id}" />
+        </h:commandButton>
+    </h:form>
     <ol>
         <ui:repeat value="#{driverCars.driver.cars}" var="car">
             JPA <h:link outcome="#{'car?carId='.concat(car.id)}" value="#{car.plateNumber}" />

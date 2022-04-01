@@ -58,11 +58,12 @@ public class DriverController {
             driversDAO.update(driver);
             return Response.ok().build();
         } catch (OptimisticLockException e) {
+            System.exit(0);
             return Response.status(Response.Status.CONFLICT).build();
         }
     }
 
-    @Path("/crate")
+    @Path("/create")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
