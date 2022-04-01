@@ -54,4 +54,9 @@ public class Riders {
         allCars = carsDAO.loadAll();
     }
 
+    @Transactional
+    public void updateRider() {
+        ridersDAO.update(rider);
+    }
+
 }

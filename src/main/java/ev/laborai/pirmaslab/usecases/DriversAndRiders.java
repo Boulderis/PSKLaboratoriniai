@@ -53,7 +53,7 @@ public class DriversAndRiders {
     }
 
     @Transactional
-    public void createRider(){
+    public void createRider() {
         ridersDAO.persist(riderToCreate);
     }
 

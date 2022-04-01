@@ -30,8 +30,6 @@ public class Driver {
     @Size(max = 100)
     @Column(name="SURNAME", nullable = false)
     private String surname;
-    @Column(name="RATING", nullable = false, precision = 2)
-    private float rating;
     @OneToMany(mappedBy = "driver")
     private List<Car> cars;
 

@@ -9,6 +9,20 @@
 <h:body>
     <h2>Rider name #{riders.rider.name}</h2>
     <h2>Rider surname #{riders.rider.name}</h2>
+    <h2>Rider nickname #{riders.rider.nickname}</h2>
+    <h:form>
+        <h:inputText value="#{riders.rider.nickname}" required="true" />
+        <br/>
+        <h:commandButton value="Change nickname" actionListener="#{riders.updateRider}" action="#{'rider?faces-redirect=true&amp;riderId='.concat(riders.rider.id)}">
+            <f:param name="riderId" value="#{riders.rider.id}" />
+        </h:commandButton>
+    </h:form>
+    <h:form>
+        <h:outputText value="#{nicknameSuggestingComponent.taskStatus}" />
+        <h:commandButton value="Suggest a nickname" disabled="#{nicknameSuggestingComponent.taskRunning}" action="#{nicknameSuggestingComponent.suggestNickname(riders.rider.nickname)}">
+            <f:param name="riderId" value="#{riders.rider.id}" />
+        </h:commandButton>
+    </h:form>
     <h3>Cars that this rider have taken as passanger are shown below</h3>
     <ol>
         <ui:repeat value="#{riders.rider.cars}" var="car">

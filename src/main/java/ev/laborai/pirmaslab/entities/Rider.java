@@ -32,6 +32,8 @@ public class Rider implements Serializable {
     @Size(max = 100)
     @Column(name="SURNAME", nullable = false)
     private String surname;
+    @Column(name="NICKNAME", nullable = false)
+    private String nickname;
     @ManyToMany(mappedBy = "riders")
     private List<Car> cars;
 

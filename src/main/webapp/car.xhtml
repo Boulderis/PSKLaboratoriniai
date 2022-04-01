@@ -13,7 +13,7 @@
     <h3>Riders that have been is this car (if any) are shown below</h3>
     <ol>
         <ui:repeat value="#{cars.car.riders}" var="rider">
-            <h:outputLabel value="#{rider.name} #{rider.surname}" />
+            <h:outputLabel value="#{rider.nickname}" />
             <br/>
         </ui:repeat>
     </ol>

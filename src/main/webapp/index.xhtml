@@ -35,7 +35,9 @@
     <br/>
     <h:inputText value="#{driversAndRiders.riderToCreate.surname}" required="true" />
     <br/>
-    <h:commandButton value="Create rider" actionListener="#{driversAndRiders.createRider}" action="index?faces-redirect=true"/>
+    <h:inputText value="#{driversAndRiders.riderToCreate.nickname}" required="true" />
+    <br/>
+    <h:commandButton value="Create rider" actionListener="#{driversAndRiders.createRider}" action="index?faces-redirect=true" />
 </h:form>
 <h:body>
 </h:body>

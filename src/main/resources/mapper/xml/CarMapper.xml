@@ -64,7 +64,7 @@
   </select>
   <select id="getRiders" parameterType="java.lang.Long" resultType="Rider">
     <!-->This method was created to deal with many to many relationship between a car and riders.-->
-    select rider.ID, rider.NAME, rider.SURNAME
+    select rider.ID, rider.NAME, rider.SURNAME, rider.NICKNAME
     from PUBLIC.RIDER rider
     join public.CARS cars_riders on rider.ID = cars_riders.RIDERS_ID
     where cars_riders.CARS_ID = #{id, jdbcType=BIGINT}
