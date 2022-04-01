@@ -67,7 +67,7 @@
     select rider.ID, rider.NAME, rider.SURNAME
     from PUBLIC.RIDER rider
     join public.CARS cars_riders on rider.ID = cars_riders.RIDERS_ID
-    where ID = #{id, jdbcType=BIGINT}
+    where cars_riders.CARS_ID = #{id, jdbcType=BIGINT}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     <!--

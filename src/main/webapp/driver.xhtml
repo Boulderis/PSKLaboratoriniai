@@ -12,7 +12,7 @@
     <h2>Driver rating #{driverCars.driver.rating}</h2>
     <h:form>
         <h:outputText value="#{driverRatingCalculator.taskStatus}" />
-        <h:commandButton value="Update your rating?" disabled="#{driverRatingCalculator.taskRunning}" action="#{driverRatingCalculator.findRating()}">
+        <h:commandButton value="Update your rating" disabled="#{driverRatingCalculator.taskRunning}" action="#{driverRatingCalculator.findRating()}">
             <f:param name="driverId" value="#{driverCars.driver.id}" />
         </h:commandButton>
     </h:form>

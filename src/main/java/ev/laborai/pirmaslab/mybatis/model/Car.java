@@ -173,4 +173,12 @@ public class Car {
     public void setDriverId(Long driverId) {
         this.driverId = driverId;
     }
+
+    public List<Rider> getRiders() {
+        return riders;
+    }
+
+    public void setRiders(List<Rider> riders) {
+        this.riders = riders;
+    }
 }
