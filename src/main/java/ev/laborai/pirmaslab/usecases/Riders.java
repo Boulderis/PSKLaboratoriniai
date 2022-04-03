@@ -2,6 +2,7 @@ package ev.laborai.pirmaslab.usecases;
 
 import ev.laborai.pirmaslab.entities.Car;
 import ev.laborai.pirmaslab.entities.Rider;
+import ev.laborai.pirmaslab.interceptors.LoggedInvocation;
 import ev.laborai.pirmaslab.persistence.CarsDAO;
 import ev.laborai.pirmaslab.persistence.RidersDAO;
 import lombok.Getter;
@@ -16,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 @Model
-public class Riders {
+public class Riders implements IRider {
 
     @Inject
     private RidersDAO ridersDAO;
@@ -35,7 +36,7 @@ public class Riders {
     private Long carToRideId;
 
     @PostConstruct
-    public void init(){
+    public void init() {
         Map<String, String> requestParameters =
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         Long riderId = Long.parseLong(requestParameters.get("riderId"));
@@ -43,6 +44,7 @@ public class Riders {
         loadAllCars();
     }
 
+    @LoggedInvocation
     @Transactional
     public void createRide() {
         Car car = carsDAO.findOne(carToRideId);
@@ -50,7 +52,7 @@ public class Riders {
         carsDAO.update(car);
     }
 
-    private void loadAllCars(){
+    public void loadAllCars(){
         allCars = carsDAO.loadAll();
     }
 

@@ -1,10 +1,12 @@
 package ev.laborai.pirmaslab.persistence;
 
 import ev.laborai.pirmaslab.entities.Driver;
+import ev.laborai.pirmaslab.entities.Rider;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.LockModeType;
 import java.util.List;
 
 @ApplicationScoped

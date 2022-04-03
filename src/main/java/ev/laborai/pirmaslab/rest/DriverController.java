@@ -49,7 +49,7 @@ public class DriverController {
                 return Response.status(Response.Status.NOT_FOUND).build();
             }
             try {
-                Thread.sleep(10000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -58,7 +58,6 @@ public class DriverController {
             driversDAO.update(driver);
             return Response.ok().build();
         } catch (OptimisticLockException e) {
-            System.exit(0);
             return Response.status(Response.Status.CONFLICT).build();
         }
     }
