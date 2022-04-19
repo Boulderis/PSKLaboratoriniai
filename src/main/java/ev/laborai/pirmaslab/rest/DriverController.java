@@ -56,6 +56,7 @@ public class DriverController {
             driver.setName(driverDTO.getName());
             driver.setSurname(driverDTO.getSurname());
             driversDAO.update(driver);
+            driversDAO.flush();
             return Response.ok().build();
         } catch (OptimisticLockException e) {
             return Response.status(Response.Status.CONFLICT).build();

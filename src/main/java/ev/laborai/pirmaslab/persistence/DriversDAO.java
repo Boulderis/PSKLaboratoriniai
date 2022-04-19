@@ -31,4 +31,8 @@ public class DriversDAO {
         return em.find(Driver.class, id);
     }
 
+    public void flush() {
+        em.flush();
+    }
+
 }
